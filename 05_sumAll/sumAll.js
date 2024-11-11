@@ -1,13 +1,11 @@
 const sumAll = function(num1, num2) {
-    if ( typeof num1 != 'number' || typeof num2 != 'number') {
-        return "ERROR"
-    }
-    if ( num1 < 1 || num2 < 1 ) {
-        return "ERROR"
-    }
-    if ( num1 % 1 != 0 || num2 % 1 != 0 ) {
-        return "ERROR"
-    }
+    const isValid = (n) => (
+        typeof n === 'number' &&
+        n >= 1 &&
+        Number.isInteger(n)
+    ) 
+
+    if (!isValid(num1) || !isValid(num2)) return "ERROR";
 
     let low = (num1 < num2) ? num1 : num2;
     let high = (num1 >= num2) ? num1 : num2;
